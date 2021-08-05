@@ -2,9 +2,24 @@
 
 <% @lists.each do |list| %>
   <%= link_to list.name, list_path(list) %>
+  <div class="card" style="width: 18rem;">
+   <%= cl_image_tag list.photo.key, height: 300, width: 400, crop: :fill %>
+  <div class="card-body">
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg), url('<%= cl_image_path @list.photo.key, height: 300, crop: :fill %>')">
+  Breakfast
+</div>
+  </div>
+</div>
+ 
 <% end %>
 
 <%= link_to "Add a new list", new_list_path %>
+
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg), url('<%= cl_image_path list.photo.key, height: 300, crop: :fill %>')">
+  Breakfast
+</div>
+
 
 
 
